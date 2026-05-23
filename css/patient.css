@@ -1,0 +1,164 @@
+/* patient.css — bổ sung cho trang quản lý bệnh nhân */
+
+.patient-navbar-legacy,
+.navbar.patient-navbar-legacy {
+    display: none !important;
+}
+
+.patient-page-layout .content-section {
+    margin-bottom: 24px;
+}
+
+.patient-page-layout .content-section input,
+.patient-page-layout .content-section select,
+.patient-page-layout .content-section textarea {
+    border: 2px solid var(--border, #e9ecef);
+    border-radius: 10px;
+    padding: 10px 14px;
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.patient-page-layout .form-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.patient-page-layout .form-container input {
+    flex: 1 1 220px;
+    max-width: 320px;
+}
+
+.patient-page-layout .button-group .btn-app-primary,
+.patient-page-layout .button-group .btn-app-secondary {
+    margin: 4px;
+}
+
+.patient-page-layout table {
+    width: 100%;
+}
+
+.management-panel__subtitle {
+    font-size: 0.95rem;
+    color: #555;
+    margin: 0 0 12px;
+    font-weight: 600;
+}
+
+.patient-search-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr auto;
+    gap: 12px;
+    align-items: end;
+    margin-bottom: 20px;
+    padding: 16px;
+    background: #f8faf9;
+    border-radius: 12px;
+    border: 1px solid #e0ebe4;
+}
+
+.patient-search-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.patient-search-actions .btn-app-primary {
+    min-width: 140px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.patient-form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.patient-empty-msg {
+    padding: 12px 16px;
+    background: #fff8e6;
+    border-radius: 8px;
+    color: #664d03;
+    margin-bottom: 12px;
+}
+
+.patient-data-table {
+    margin-top: 8px;
+}
+
+.patient-page-layout .clickable-row {
+    cursor: pointer;
+}
+
+.patient-page-layout .clickable-row:hover {
+    background-color: rgba(0, 123, 62, 0.08) !important;
+}
+
+.history-actions {
+    white-space: nowrap;
+}
+
+.history-actions .btn {
+    margin: 2px;
+}
+
+.patient-detail-dl {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 8px 16px;
+    margin: 0;
+}
+
+.patient-detail-dl dt {
+    font-weight: 600;
+    color: #333;
+}
+
+.patient-detail-dl dd {
+    margin: 0;
+    color: #444;
+}
+
+.detail-section-title {
+    color: var(--primary, #007b3e);
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.exam-result-card {
+    background: #f8faf9;
+    border: 1px solid #e0ebe4;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+}
+
+.exam-result-card__title {
+    color: var(--primary, #007b3e);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.exam-results-empty a {
+    color: var(--primary, #007b3e);
+    font-weight: 600;
+}
+
+@media (max-width: 900px) {
+    .patient-search-bar {
+        grid-template-columns: 1fr;
+    }
+    .patient-detail-dl {
+        grid-template-columns: 1fr;
+    }
+    .patient-detail-dl dt {
+        margin-top: 8px;
+    }
+}

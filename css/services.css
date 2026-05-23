@@ -1,0 +1,308 @@
+/* services.css - Giao diện trang dịch vụ khám bệnh */
+@import url('app-layout.css');
+
+/* FIX NAVBAR LOGO ALIGNMENT */
+.navbar-tren-container > a img {
+    height: 60px;
+    margin-left: 100px;
+    vertical-align: middle; /* Thêm dòng này để căn giữa */
+}
+
+.navbar-duoi-container > a img {
+    height: 50px;
+    vertical-align: middle; /* Thêm dòng này để căn giữa */
+}
+
+/* HEADER SECTION - Giống index.html */
+.header-section {
+    background-color: #006633;
+    color: white;
+    text-align: center;
+    padding: 80px 0;
+    margin-top: 130px;
+    background: linear-gradient(135deg, #006633 0%, #008a4f 100%);
+}
+
+.header-section h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* CONTAINER */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    flex: 1;
+}
+
+/* SERVICE MANAGEMENT BOX - Cập nhật màu sắc */
+.service-management-box {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    border: 1px solid #e9ecef;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+/* FORM CONTROLS với màu sắc đồng bộ */
+.form-control {
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    padding: 12px 15px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.form-control:focus {
+    border-color: #006633;
+    box-shadow: 0 0 0 0.2rem rgba(0, 102, 51, 0.25);
+    outline: none;
+    background: #fff;
+}
+
+/* BUTTON STYLES - Đồng bộ màu */
+.btn-success {
+    background: linear-gradient(135deg, #006633 0%, #008a4f 100%);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 25px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 102, 51, 0.3);
+}
+
+.btn-success:hover {
+    background: linear-gradient(135deg, #008a4f 0%, #00a85c 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 102, 51, 0.4);
+}
+
+/* SEARCH INPUT với màu đồng bộ */
+#searchInput {
+    border: 2px solid #e9ecef;
+    border-radius: 25px;
+    padding: 12px 20px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+#searchInput:focus {
+    border-color: #006633;
+    box-shadow: 0 0 0 0.2rem rgba(0, 102, 51, 0.25);
+    outline: none;
+}
+
+/* TABLE STYLES với màu đồng bộ */
+.table {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    background: white;
+}
+
+.table-dark {
+    background: linear-gradient(135deg, #006633 0%, #008a4f 100%) !important;
+    border: none;
+}
+
+.table-dark th {
+    border: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 102, 51, 0.03);
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(0, 102, 51, 0.08);
+    transform: scale(1.002);
+    transition: all 0.2s ease;
+}
+
+/* BUTTON STYLES */
+.btn-danger {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3);
+}
+
+.btn-danger:hover {
+    background: linear-gradient(135deg, #c82333 0%, #a71e2a 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.4);
+}
+
+/* SERVICE BOX STYLES - Đồng bộ với index.html */
+.service-box {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    padding: 30px 25px;
+    height: 100%;
+    transition: all 0.3s ease;
+    border: 1px solid #e9ecef;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, #006633 0%, #008a4f 100%);
+}
+
+.service-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.service-box i {
+    color: #006633;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.service-box h4 {
+    color: #006633;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.service-box p {
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* SECTION HEADINGS với màu đồng bộ */
+h2 {
+    color: #006633;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(135deg, #006633 0%, #008a4f 100%);
+    border-radius: 2px;
+}
+
+/* Footer: dùng app-layout.css (vàng + xanh) */
+footer.site-footer {
+    margin-top: 50px;
+}
+
+/* RESPONSIVE DESIGN - Giữ nguyên */
+@media (max-width: 768px) {
+    .header-section {
+        padding: 60px 0;
+        margin-top: 130px;
+    }
+    
+    .service-management-box {
+        padding: 20px;
+    }
+    
+    .footer-main {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .footer-right button {
+        text-align: center;
+    }
+    
+    /* Fix logo alignment on mobile */
+    .navbar-tren-container > a img {
+        margin-left: 20px;
+        height: 50px;
+    }
+    
+    .navbar-duoi-container > a img {
+        height: 40px;
+    }
+}
+
+/* FIX THÊM CHO NAVBAR CONTAINER */
+.navbar-tren-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-duoi-container {
+    height: 50px;
+    background-color: white;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; /* Thêm dòng này để căn giữa */
+}
+
+.cat-set {
+    display: flex;
+    min-width: 1100px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+/* FIX LOGO ALIGNMENT - ĐẶT BIỆT */
+.navbar-tren-container > a,
+.navbar-duoi-container > a {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.navbar-tren-container > a img,
+.navbar-duoi-container > a img {
+    display: block;
+    object-fit: contain;
+}
+
+/* Đảm bảo navbar items căn giữa */
+.navbar-tren-tien-ich {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-container {
+    display: flex;
+    align-items: center;
+}

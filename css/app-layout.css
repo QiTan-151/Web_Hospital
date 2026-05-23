@@ -1,0 +1,787 @@
+/* app-layout.css - Giao diện thống nhất (theo trang Dịch vụ khám bệnh) */
+
+:root {
+    --primary: #006633;
+    --primary-light: #008a4f;
+    --primary-dark: #004d26;
+    --accent: #ffc72c;
+    --bg: #f4f7f5;
+    --card: #ffffff;
+    --text: #2c3e50;
+    --muted: #6c757d;
+    --border: #e9ecef;
+    --shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    --radius: 14px;
+    --nav-offset: 130px;
+    --content-max: 1100px;
+}
+
+body.app-page {
+    font-family: 'Lexend Deca', 'Open Sans', sans-serif;
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* Tiêu đề trang */
+.header-section {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: white;
+    text-align: center;
+    padding: 48px 20px;
+    margin-top: var(--nav-offset);
+}
+
+.header-section h1 {
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    font-weight: 700;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.header-section p {
+    margin: 12px 0 0;
+    opacity: 0.9;
+    font-size: 1rem;
+}
+
+/* Vùng nội dung căn giữa */
+.app-main {
+    width: 100%;
+    max-width: var(--content-max);
+    margin: 0 auto;
+    padding: 32px 20px 48px;
+    box-sizing: border-box;
+}
+
+.app-main.wide {
+    max-width: 1200px;
+}
+
+/* Khối thao tác chính */
+.management-panel {
+    background: linear-gradient(135deg, #ffffff 0%, #f8faf9 100%);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin-bottom: 28px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.management-panel__title {
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin: 0 0 20px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.management-panel__title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--primary-light));
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* Form */
+.app-form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: flex-end;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.app-form-row .form-control,
+.app-form-row input,
+.app-form-row select,
+.app-form-row textarea {
+    flex: 1 1 180px;
+    min-width: 0;
+    max-width: 100%;
+}
+
+.form-control,
+.management-panel input,
+.management-panel select,
+.management-panel textarea {
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 15px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-control:focus,
+.management-panel input:focus,
+.management-panel select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(0, 102, 51, 0.15);
+    outline: none;
+}
+
+/* Nút */
+.btn-app-primary {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    border: none;
+    color: white;
+    border-radius: 10px;
+    padding: 12px 24px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    white-space: nowrap;
+}
+
+.btn-app-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 102, 51, 0.35);
+}
+
+.btn-app-secondary {
+    background: white;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-app-danger {
+    background: linear-gradient(135deg, #dc3545, #c82333);
+    border: none;
+    color: white;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn-app-warning {
+    background: linear-gradient(135deg, #f0ad4e, #ec971f);
+    border: none;
+    color: white;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* Tìm kiếm */
+.app-search-wrap {
+    max-width: 480px;
+    margin: 0 auto 20px;
+}
+
+.app-search-wrap input {
+    border-radius: 999px;
+    text-align: center;
+}
+
+/* Bảng */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.table {
+    margin-bottom: 0;
+    background: white;
+}
+
+.table-dark {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light)) !important;
+}
+
+.table-dark th {
+    border: none;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 102, 51, 0.03);
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(0, 102, 51, 0.06);
+}
+
+/* Grid thẻ (khoa, giường) */
+.app-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    justify-items: center;
+    width: 100%;
+    max-width: var(--content-max);
+    margin: 0 auto;
+    padding: 0 20px 32px;
+    box-sizing: border-box;
+}
+
+.app-grid .box {
+    width: 100%;
+    max-width: 240px;
+    min-height: 100px;
+    background: white;
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    box-sizing: border-box;
+}
+
+.app-grid .box:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary-light);
+    box-shadow: var(--shadow);
+}
+
+.app-grid .box small {
+    font-weight: 400;
+    color: var(--muted);
+    margin-top: 6px;
+}
+
+/* Sub-view khoa/giường */
+.room-view {
+    max-width: var(--content-max);
+    margin: 0 auto;
+    padding: 24px 20px 40px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.room-view .header {
+    font-size: 1.35rem;
+    color: var(--primary);
+    margin: 16px 0;
+}
+
+.room-view .info {
+    position: static;
+    text-align: center;
+    color: var(--muted);
+    margin-bottom: 16px;
+}
+
+.room-view .back-button {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+}
+
+/* Danh sách nhân viên dạng card */
+.employee-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.employee-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 16px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+}
+
+.employee-card img {
+    width: 100%;
+    max-width: 120px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 12px;
+}
+
+.employee-card .employee-name {
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.employee-card .employee-meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 4px 0;
+}
+
+.employee-card .employee-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 12px;
+    flex-wrap: wrap;
+}
+
+/* Patient sidebar layout */
+.patient-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    max-width: var(--content-max);
+    margin: 0 auto;
+    padding: 24px 20px 40px;
+    box-sizing: border-box;
+}
+
+.patient-sidebar {
+    flex: 0 0 220px;
+    background: white;
+    border-radius: var(--radius);
+    padding: 16px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.patient-sidebar button {
+    width: 100%;
+    text-align: left;
+    padding: 12px 14px;
+    border: none;
+    border-radius: 8px;
+    background: var(--bg);
+    color: var(--text);
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.patient-sidebar button:hover,
+.patient-sidebar button.active {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: white;
+}
+
+.patient-content {
+    flex: 1 1 400px;
+    min-width: 0;
+}
+
+.patient-content .content-section {
+    background: white;
+    border-radius: var(--radius);
+    padding: 28px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+}
+
+.patient-content .content-section h1 {
+    color: var(--primary);
+    font-size: 1.35rem;
+    margin-top: 0;
+}
+
+.patient-content input,
+.patient-content select {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+}
+
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+.no-results {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--muted);
+    grid-column: 1 / -1;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Footer đồng bộ (vàng + xanh) — full width, không viền trắng hai bên */
+footer.site-footer,
+footer.app-footer,
+footer.hospital-footer,
+body.app-page > footer,
+body > footer {
+    margin-top: auto;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+}
+
+footer.site-footer .footer-top,
+footer.app-footer .footer-top,
+footer.hospital-footer .footer-top,
+body.app-page > footer .footer-top,
+body > footer .footer-top {
+    background-color: #ffc72c !important;
+    color: #1a1a1a;
+    text-align: center;
+    padding: 14px 20px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+footer.site-footer .footer-top strong,
+body.app-page > footer .footer-top strong {
+    font-size: 1.25rem;
+}
+
+footer.site-footer .footer-main,
+footer.app-footer .footer-main,
+footer.hospital-footer .footer-main,
+body.app-page > footer .footer-main,
+body > footer .footer-main {
+    background-color: #007b3e !important;
+    color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 32px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 36px clamp(20px, 5vw, 80px) 40px;
+    box-sizing: border-box;
+}
+
+footer.site-footer .footer-main .footer-left,
+footer.hospital-footer .footer-main .footer-left,
+body > footer .footer-main .footer-left {
+    flex: 0 1 auto;
+    max-width: min(520px, 50%);
+    margin-right: auto;
+    text-align: left;
+}
+
+footer.site-footer .footer-main .footer-right,
+footer.hospital-footer .footer-main .footer-right,
+body > footer .footer-main .footer-right {
+    flex: 0 0 auto;
+    margin-left: auto;
+    align-items: flex-end;
+    min-width: 280px;
+}
+
+footer.site-footer .footer-left p,
+footer.site-footer .footer-left ul,
+body.app-page > footer .footer-left p,
+body.app-page > footer .footer-left ul {
+    margin: 6px 0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+footer.site-footer .footer-left strong,
+body.app-page > footer .footer-left strong {
+    color: #fff;
+}
+
+footer.site-footer .footer-left ul,
+body.app-page > footer .footer-left ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer.site-footer .footer-right,
+footer.hospital-footer .footer-right,
+body.app-page > footer .footer-right,
+body > footer .footer-right {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-end;
+}
+
+footer.site-footer .footer-right button,
+footer.app-footer .footer-right button,
+footer.hospital-footer .footer-right button,
+body.app-page > footer .footer-right button,
+body > footer .footer-right button {
+    background: #fff !important;
+    color: #007b3e !important;
+    border: none;
+    border-radius: 999px;
+    padding: 14px 22px;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    transition: transform 0.2s, box-shadow 0.2s;
+    width: 100%;
+    min-width: 260px;
+    max-width: 320px;
+}
+
+footer.site-footer .footer-right button:hover,
+body.app-page > footer .footer-right button:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+}
+
+footer.site-footer .footer-bottom,
+footer.hospital-footer .footer-bottom,
+body.app-page > footer .footer-bottom,
+body > footer .footer-bottom {
+    background-color: #007b3e;
+    border-top: 1px solid rgba(255, 255, 255, 0.35);
+    min-height: 12px;
+    padding: 8px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Trang chủ / giới thiệu — nội dung căn giữa */
+body.app-page .home-section,
+body.app-page .public-section {
+    max-width: var(--content-max);
+    margin: 0 auto;
+    padding: 32px 20px;
+    box-sizing: border-box;
+}
+
+body.app-page .home-section h2,
+body.app-page .public-section h2 {
+    color: var(--primary);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+body.app-page .service-box {
+    background: linear-gradient(135deg, #ffffff 0%, #f8faf9 100%);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 24px;
+    height: 100%;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+body.app-page .service-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 102, 51, 0.12);
+}
+
+body.app-page .service-box h4 {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+/* Quản lý bệnh nhân */
+.patient-nav-panel {
+    margin-bottom: 24px;
+}
+
+.patient-nav-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.patient-nav-pills button {
+    border: 2px solid var(--primary);
+    background: #fff;
+    color: var(--primary);
+    border-radius: 999px;
+    padding: 10px 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.patient-nav-pills button:hover,
+.patient-nav-pills button.active {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: #fff;
+    border-color: var(--primary);
+}
+
+.patient-page-layout .content-section {
+    display: none;
+}
+
+.patient-page-layout .content-section.management-panel {
+    display: none;
+}
+
+.patient-page-layout .content-section.is-visible {
+    display: block;
+}
+
+.patient-page-layout .table-responsive {
+    margin-top: 16px;
+}
+
+/* Navbar trang quản lý — nút bo tròn, tách rời */
+body.app-page .navbar-duoi .cat-set {
+    min-width: 0;
+    flex: 1;
+    justify-content: flex-start;
+    padding: 0 12px;
+}
+
+body.app-page .navbar-duoi .cat-set > ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: auto;
+}
+
+body.app-page .navbar-duoi .sub-menu-parent {
+    height: auto;
+}
+
+body.app-page .navbar-duoi .sub-menu-parent > a {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: #f0f6f2;
+    border: 1px solid #c5e0d0;
+    transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+body.app-page .navbar-duoi .sub-menu-parent > a:hover,
+body.app-page .navbar-duoi .sub-menu-parent:focus-within > a {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    border-color: var(--primary);
+    box-shadow: 0 4px 12px rgba(0, 102, 51, 0.25);
+}
+
+body.app-page .navbar-duoi .sub-menu-parent > a .cat-set-title,
+body.app-page .navbar-duoi .sub-menu-parent:hover .cat-set-title {
+    color: var(--text);
+    font-size: 15px;
+    margin: 0;
+}
+
+body.app-page .navbar-duoi .sub-menu-parent > a:hover .cat-set-title,
+body.app-page .navbar-duoi .sub-menu-parent:focus-within > a .cat-set-title {
+    color: #fff;
+}
+
+body.app-page .navbar-duoi-container {
+    height: auto;
+    min-height: 56px;
+    padding: 8px 0;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* Áp dụng nhanh cho trang chưa refactor HTML đầy đủ */
+body.app-page .hero-section {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    margin-top: var(--nav-offset);
+    padding: 48px 20px;
+}
+
+body.app-page .hero-section h1 {
+    font-size: clamp(1.4rem, 3.5vw, 2rem);
+}
+
+body.app-page .content,
+body.app-page > .container,
+body.app-page h2 {
+    max-width: var(--content-max);
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+}
+
+body.app-page .content {
+    padding: 24px 20px 40px;
+    width: 100%;
+}
+
+body.app-page .grid#departments,
+body.app-page .room-view {
+    max-width: var(--content-max);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body.app-page .form-container,
+body.app-page table {
+    max-width: 100%;
+}
+
+body.app-page h2 {
+    color: var(--primary);
+    text-align: center;
+    font-weight: 700;
+    padding: 24px 20px 0;
+}
+
+@media (max-width: 768px) {
+    .header-section {
+        padding: 36px 16px;
+        margin-top: 120px;
+    }
+
+    .management-panel {
+        padding: 20px 16px;
+    }
+
+    .app-form-row {
+        flex-direction: column;
+    }
+
+    .patient-layout {
+        flex-direction: column;
+    }
+
+    .patient-sidebar {
+        flex: 1 1 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .patient-sidebar button {
+        flex: 1 1 auto;
+    }
+}

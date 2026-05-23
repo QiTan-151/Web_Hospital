@@ -1,0 +1,9 @@
+/* hr.css - bổ sung cho app-layout */
+.employee-form .app-form-row {
+    gap: 12px;
+}
+
+.employee-list .employee,
+.employee-grid .employee-card {
+    /* legacy + new card */
+}

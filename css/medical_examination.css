@@ -1,0 +1,407 @@
+/* ============================= */
+/* Bố cục trang khám chữa bệnh (theo room_bed / app-layout) */
+/* ============================= */
+.exam-main {
+    padding-top: 0;
+}
+
+.exam-queue-panel .exam-controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.exam-step-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    text-align: center;
+}
+
+.exam-workspace #steps {
+    flex: 1;
+    min-width: 0;
+}
+
+.exam-print-panel {
+    margin-bottom: 24px;
+}
+
+.print-preview-box {
+    background: #fff;
+    border: 1px solid var(--border, #e9ecef);
+    border-radius: 12px;
+    padding: 20px;
+    font-size: 14px;
+    line-height: 1.6;
+    max-height: 320px;
+    overflow-y: auto;
+}
+
+.print-preview-empty {
+    color: var(--muted, #6c757d);
+    text-align: center;
+    margin: 0;
+}
+
+.print-preview-inner p {
+    margin: 6px 0;
+}
+
+#waiting-list li.waiting-active {
+    background: rgba(0, 102, 51, 0.12);
+    border-left-color: #006633 !important;
+    font-weight: 600;
+}
+
+.exam-done-badge {
+    color: #006633;
+    font-weight: 600;
+}
+
+.exam-workspace.container_up_down {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 0;
+    min-height: 50vh;
+    max-width: var(--content-max, 1100px);
+    margin: 0 auto 28px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.container_up_down {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    min-height: 70vh;
+}
+
+/* ============================= */
+/* 🔹 Nội dung khám bệnh */
+/* ============================= */
+.main-content {
+    flex: 1;
+    max-width: 65%;
+}
+
+/* ============================= */
+/* 🔹 Danh sách chờ */
+/* ============================= */
+.waiting-list-container {
+    width: 35%;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.waiting-list-container h3 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+}
+
+#waiting-count {
+    font-weight: bold;
+    color: #e74c3c;
+}
+
+#waiting-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#waiting-list li {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ecf0f1;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-left: 3px solid transparent;
+}
+
+#waiting-list li:hover {
+    background-color: #f8f9fa;
+    border-left-color: #3498db;
+    transform: translateX(5px);
+}
+
+#waiting-list li:last-child {
+    border-bottom: none;
+}
+
+#waiting-list li strong {
+    color: #2c3e50;
+    font-size: 1em;
+}
+
+#waiting-list li small {
+    color: #7f8c8d;
+    font-size: 0.85em;
+}
+
+/* ============================= */
+/* 🔹 Điều khiển chuyển bước */
+/* ============================= */
+.controls-top {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.controls {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 25px;
+    padding: 20px;
+}
+
+.exam-main .controls button:not(.btn-app-primary),
+.exam-step-nav button:not(.btn-app-primary) {
+    background: var(--primary, #006633);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    min-width: 120px;
+}
+
+#prevBtn.btn-app-primary {
+    background: #6c757d;
+}
+
+#prevBtn.btn-app-primary:hover:not(:disabled) {
+    background: #545b62;
+}
+
+/* ============================= */
+/* 🔹 Các bước khám bệnh */
+/* ============================= */
+.step {
+    background: white;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 2px solid #e9ecef;
+    width: 100%;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.step:hover {
+    border-color: #007bff;
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.15);
+}
+
+.step h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.6em;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    text-align: left;
+}
+
+.step p {
+    text-align: left;
+    margin: 12px 0;
+    font-size: 1.1em;
+    color: #34495e;
+}
+
+.step p span {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+/* Form elements trong các bước */
+.step input, 
+.step textarea, 
+.step select {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 8px 0;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.step input:focus, 
+.step textarea:focus, 
+.step select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.step textarea {
+    min-height: 100px;
+    resize: vertical;
+    font-family: inherit;
+}
+
+.step input::placeholder,
+.step textarea::placeholder {
+    color: #adb5bd;
+}
+
+/* Hiệu ứng ẩn/hiện */
+.hidden {
+    display: none !important;
+}
+
+/* Current queue display */
+#currentQueue {
+    font-size: 1.8em;
+    color: #e74c3c;
+    font-weight: bold;
+    background: #fff5f5;
+    padding: 5px 15px;
+    border-radius: 8px;
+    border: 2px solid #e74c3c;
+}
+
+/* Patient info highlight */
+#patient-name,
+#patient-age,
+#patient-issue,
+#patient-history {
+    background: #f8f9fa;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    min-width: 200px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .container_up_down {
+        flex-direction: column;
+    }
+    
+    .main-content,
+    .waiting-list-container {
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .waiting-list-container {
+        max-height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container_up_down {
+        padding: 10px;
+    }
+    
+    .step {
+        padding: 20px;
+    }
+    
+    .controls {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    button {
+        min-width: auto;
+        width: 100%;
+    }
+    
+    .controls-top {
+        flex-wrap: wrap;
+    }
+}
+
+/* Animation cho chuyển step */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.step:not(.hidden) {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Print button specific style */
+button[onclick="printDiagnosis()"] {
+    background: #28a745;
+}
+
+button[onclick="printDiagnosis()"]:hover {
+    background: #218838;
+}
+
+/* Finish button specific style */
+button[onclick="finishCurrentPatient()"] {
+    background: #dc3545;
+}
+
+button[onclick="finishCurrentPatient()"]:hover {
+    background: #c82333;
+}
+
+/* Queue controls */
+.controls-top button {
+    min-width: 100px;
+    background: #17a2b8;
+}
+
+.controls-top button:hover {
+    background: #138496;
+}
+
+/* Step navigation states */
+.step-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* Loading state */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Success message */
+.success-message {
+    background: #d4edda;
+    color: #155724;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #c3e6cb;
+    margin: 10px 0;
+}
