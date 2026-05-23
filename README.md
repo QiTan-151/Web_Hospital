@@ -22,11 +22,8 @@ Hệ thống quản lý bệnh viện toàn diện được xây dựng bằng *
 - [Tính năng](#-tính-năng)
 - [Công nghệ sử dụng](#-công-nghệ-sử-dụng)
 - [Cấu trúc dự án](#-cấu-trúc-dự-án)
-- [OOP trong dự án](#-oop-trong-dự-án)
-- [Cài đặt và chạy](#-cài-đặt-và-chạy)
 - [API Endpoints](#-api-endpoints)
 - [Cơ sở dữ liệu](#-cơ-sở-dữ-liệu)
-- [Nhóm phát triển](#-nhóm-phát-triển)
 
 ---
 
