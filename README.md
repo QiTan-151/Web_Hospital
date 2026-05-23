@@ -51,10 +51,10 @@ Dự án áp dụng đầy đủ 4 tính chất của **Lập Trình Hướng Đ
 │                   SPRING BOOT BACKEND                   │
 │                     (Port 8080)                         │
 │                                                         │
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────────┐  │
-│  │  Controller │→ │   Service   │→ │   Repository    │  │
-│  │  (API Layer)│  │(Logic Layer)│  │  (Data Layer)   │  │
-│  └─────────────┘  └─────────────┘  └────────┬────────┘  │
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────────┐ │
+│  │  Controller │→ │   Service   │→ │   Repository    │ │
+│  │  (API Layer)│  │(Logic Layer)│  │  (Data Layer)   │ │
+│  └─────────────┘  └─────────────┘  └────────┬────────┘ │
 │                                             │           │
 │  ┌──────────────────────────────────────────┘           │
 │  │              Spring Data JPA                         │
@@ -126,92 +126,101 @@ Dự án áp dụng đầy đủ 4 tính chất của **Lập Trình Hướng Đ
 ## 📁 Cấu Trúc Dự Án
 
 ```
-hospital-backend/
-├── src/
-│   └── main/
-│       ├── java/com/hospital/
-│       │   ├── config/
-│       │   │   ├── SecurityConfig.java       # Cấu hình bảo mật
-│       │   │   ├── WebConfig.java            # Cấu hình CORS
-│       │   │   └── DataSeeder.java           # Dữ liệu mẫu
-│       │   │
-│       │   ├── controller/                   # Tiếp nhận HTTP request
-│       │   │   ├── AuthController.java
-│       │   │   ├── PatientController.java
-│       │   │   ├── EmployeeController.java
-│       │   │   ├── MedicineController.java
-│       │   │   ├── DepartmentController.java
-│       │   │   ├── BedController.java
-│       │   │   ├── MedicalServiceController.java
-│       │   │   ├── PatientMedicalRecordController.java
-│       │   │   └── PatientVisitHistoryController.java
-│       │   │
-│       │   ├── model/                        # Entity - Class OOP
-│       │   │   ├── User.java
-│       │   │   ├── Patient.java
-│       │   │   ├── Employee.java
-│       │   │   ├── Medicine.java
-│       │   │   ├── MedicalService.java
-│       │   │   ├── PatientMedicalRecord.java
-│       │   │   ├── PatientVisitHistory.java
-│       │   │   ├── Department.java
-│       │   │   ├── Room.java
-│       │   │   └── Bed.java
-│       │   │
-│       │   ├── repository/                   # Tầng truy vấn dữ liệu
-│       │   │   ├── UserRepository.java
-│       │   │   ├── PatientRepository.java
-│       │   │   ├── EmployeeRepository.java
-│       │   │   ├── MedicineRepository.java
-│       │   │   ├── MedicalServiceRepository.java
-│       │   │   ├── PatientMedicalRecordRepository.java
-│       │   │   ├── PatientVisitHistoryRepository.java
-│       │   │   ├── DepartmentRepository.java
-│       │   │   ├── RoomRepository.java
-│       │   │   └── BedRepository.java
-│       │   │
-│       │   └── HospitalApplication.java      # Điểm khởi chạy
-│       │
-│       └── resources/
-│           └── application.properties        # Cấu hình database
+Web_Hospital/                                 # Thư mục gốc
 │
-├── html/                                     # Giao diện Frontend
+├── hospital-backend/                         # ⚙️ Spring Boot Backend (Java)
+│   ├── src/
+│   │   └── main/
+│   │       ├── java/com/hospital/
+│   │       │   ├── config/
+│   │       │   │   ├── SecurityConfig.java   # Cấu hình bảo mật & phân quyền
+│   │       │   │   ├── WebConfig.java        # Cấu hình CORS
+│   │       │   │   └── DataSeeder.java       # Khởi tạo dữ liệu mẫu
+│   │       │   │
+│   │       │   ├── controller/               # Tiếp nhận HTTP request
+│   │       │   │   ├── AuthController.java
+│   │       │   │   ├── PatientController.java
+│   │       │   │   ├── EmployeeController.java
+│   │       │   │   ├── MedicineController.java
+│   │       │   │   ├── DepartmentController.java
+│   │       │   │   ├── BedController.java
+│   │       │   │   ├── MedicalServiceController.java
+│   │       │   │   ├── PatientMedicalRecordController.java
+│   │       │   │   └── PatientVisitHistoryController.java
+│   │       │   │
+│   │       │   ├── model/                    # Entity - Class OOP
+│   │       │   │   ├── User.java
+│   │       │   │   ├── Patient.java
+│   │       │   │   ├── Employee.java
+│   │       │   │   ├── Medicine.java
+│   │       │   │   ├── MedicalService.java
+│   │       │   │   ├── PatientMedicalRecord.java
+│   │       │   │   ├── PatientVisitHistory.java
+│   │       │   │   ├── Department.java
+│   │       │   │   ├── Room.java
+│   │       │   │   └── Bed.java
+│   │       │   │
+│   │       │   ├── repository/               # Tầng truy vấn dữ liệu
+│   │       │   │   ├── UserRepository.java
+│   │       │   │   ├── PatientRepository.java
+│   │       │   │   ├── EmployeeRepository.java
+│   │       │   │   ├── MedicineRepository.java
+│   │       │   │   ├── MedicalServiceRepository.java
+│   │       │   │   ├── PatientMedicalRecordRepository.java
+│   │       │   │   ├── PatientVisitHistoryRepository.java
+│   │       │   │   ├── DepartmentRepository.java
+│   │       │   │   ├── RoomRepository.java
+│   │       │   │   └── BedRepository.java
+│   │       │   │
+│   │       │   └── HospitalApplication.java  # Điểm khởi chạy server
+│   │       │
+│   │       └── resources/
+│   │           └── application.properties    # Cấu hình database
+│   │
+│   └── pom.xml                               # Maven dependencies
+│
+├── html/                                     # 🌐 Giao diện HTML
 │   ├── index.html                            # Trang chủ
 │   ├── login.html                            # Đăng nhập
-│   ├── introduce.html                        # Giới thiệu
+│   ├── introduce.html                        # Giới thiệu bệnh viện
 │   ├── patient_management.html               # Quản lý bệnh nhân
 │   ├── hr.html                               # Quản lý nhân viên
 │   ├── pharmacy.html                         # Quản lý thuốc
-│   ├── room_bed.html                         # Phòng/giường bệnh
+│   ├── room_bed.html                         # Quản lý phòng/giường
 │   ├── medical_examination.html              # Khám bệnh
 │   └── services.html                         # Dịch vụ y tế
-│   ├── css/
-│   │   ├── styles.css
-│   │   ├── app-layout.css
-│   │   ├── navbar.css
-│   │   ├── patient.css
-│   │   ├── hr.css
-│   │   ├── pharmacy.css
-│   │   ├── room_bed.css
-│   │   ├── medical_examination.css
-│   │   └── services.css
-│   └── js/
-│       ├── api.js
-│       ├── auth.js
-│       ├── patient.js
-│       ├── hr.js
-│       ├── pharmacy.js
-│       ├── room_bed.js
-│       ├── services.js
-│       ├── medical_examination.js
-│       ├── exam-queue.js
-│       ├── exam-records.js
-│       └── navbar.js
 │
-├── init-db.js                                # Script khởi tạo database
-├── server.js                                 # Backend Node.js (phiên bản cũ)
-├── pom.xml                                   # Maven dependencies
-└── README.md
+├── css/                                      # 🎨 Stylesheet
+│   ├── styles.css                            # CSS dùng chung
+│   ├── app-layout.css                        # Layout tổng thể
+│   ├── navbar.css                            # Thanh điều hướng
+│   ├── patient.css                           # Trang bệnh nhân
+│   ├── hr.css                                # Trang nhân viên
+│   ├── pharmacy.css                          # Trang thuốc
+│   ├── room_bed.css                          # Trang phòng/giường
+│   ├── medical_examination.css               # Trang khám bệnh
+│   └── services.css                          # Trang dịch vụ
+│
+├── js/                                       # ⚡ JavaScript
+│   ├── api.js                                # Kết nối API chung
+│   ├── auth.js                               # Xác thực người dùng
+│   ├── patient.js                            # Logic bệnh nhân
+│   ├── hr.js                                 # Logic nhân viên
+│   ├── pharmacy.js                           # Logic thuốc
+│   ├── room_bed.js                           # Logic phòng/giường
+│   ├── services.js                           # Logic dịch vụ y tế
+│   ├── medical_examination.js                # Logic khám bệnh
+│   ├── exam-queue.js                         # Hàng chờ khám
+│   ├── exam-records.js                       # Hồ sơ kết quả khám
+│   └── navbar.js                             # Điều hướng navbar
+│
+├── images/                                   # 🖼️ Hình ảnh & tài nguyên
+│
+├── start-backend.bat                         # Script khởi chạy backend
+├── start-frontend.bat                        # Script khởi chạy frontend
+├── reorganize.bat                            # Script tổ chức file
+├── .gitattributes                            # Cấu hình Git
+└── README.md                                 # Tài liệu dự án
 ```
 
 ---
