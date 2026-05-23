@@ -85,7 +85,7 @@ Dự án áp dụng đầy đủ 4 tính chất của **Lập Trình Hướng Đ
 
 | Chức năng | Mô tả | Trạng thái |
 |---|---|---|
-| 🔐 Xác thực | Đăng nhập, đăng xuất, phân quyền (admin/doctor/staff) | ✅ |
+| 🔐 Xác thực | Đăng nhập, đăng xuất, đăng kí  | ✅ |
 | 👤 Quản lý bệnh nhân | Thêm, sửa, xóa, tìm kiếm bệnh nhân | ✅ |
 | 👨‍⚕️ Quản lý nhân viên | CRUD nhân viên, tìm kiếm theo khoa | ✅ |
 | 💊 Quản lý thuốc | CRUD thuốc, kiểm tra tồn kho | ✅ |
