@@ -314,6 +314,5 @@ employees
 
 ---
 
-<div align="center">
-Made with ❤️ 
+<div align="center"> 
 </div>
