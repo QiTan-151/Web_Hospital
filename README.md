@@ -51,10 +51,10 @@ Dự án áp dụng đầy đủ 4 tính chất của **Lập Trình Hướng Đ
 │                   SPRING BOOT BACKEND                   │
 │                     (Port 8080)                         │
 │                                                         │
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────────┐ │
-│  │  Controller │→ │   Service   │→ │   Repository    │ │
-│  │  (API Layer)│  │(Logic Layer)│  │  (Data Layer)   │ │
-│  └─────────────┘  └─────────────┘  └────────┬────────┘ │
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────────┐  │
+│  │  Controller │→ │   Service   │→ │   Repository    │  │
+│  │  (API Layer)│  │(Logic Layer)│  │  (Data Layer)   │  │
+│  └─────────────┘  └─────────────┘  └────────┬────────┘  │
 │                                             │           │
 │  ┌──────────────────────────────────────────┘           │
 │  │              Spring Data JPA                         │
@@ -225,104 +225,6 @@ Web_Hospital/                                 # Thư mục gốc
 
 ---
 
-## 🎓 OOP Trong Dự Án
-
-Dự án thể hiện đầy đủ 4 tính chất của Lập Trình Hướng Đối Tượng:
-
-### 1. Encapsulation (Đóng gói)
-Toàn bộ dữ liệu trong các Entity được khai báo `private`, chỉ truy cập qua getter/setter:
-```java
-// Patient.java
-public class Patient {
-    private String name;      // Ẩn dữ liệu
-    private String cccd;
-
-    public String getName() { return name; }        // Đọc qua getter
-    public void setName(String name) { this.name = name; } // Ghi qua setter
-}
-```
-
-### 2. Abstraction (Trừu tượng hóa)
-Repository sử dụng `interface` — ẩn hoàn toàn SQL, chỉ khai báo tên phương thức:
-```java
-public interface PatientRepository extends JpaRepository<Patient, Integer> {
-    List<Patient> findByNameContaining(String name); // Không cần viết SQL
-    List<Patient> findByCccdContaining(String cccd);
-}
-```
-
-### 3. Inheritance (Kế thừa)
-Tất cả Repository kế thừa `JpaRepository` — tự động có đầy đủ các phương thức CRUD:
-```java
-// Kế thừa → tự có: save(), findAll(), deleteById(), existsById()...
-public interface PatientRepository extends JpaRepository<Patient, Integer>
-public interface EmployeeRepository extends JpaRepository<Employee, Integer>
-public interface MedicineRepository extends JpaRepository<Medicine, Integer>
-```
-
-### 4. Polymorphism (Đa hình)
-`ResponseEntity<?>` trong Controller trả về nhiều kiểu khác nhau tùy tình huống:
-```java
-public ResponseEntity<?> addPatient(@RequestBody Patient patient) {
-    if (patient.getName() == null)
-        return ResponseEntity.badRequest().body(Map.of("error", "Thiếu thông tin")); // 400
-    return ResponseEntity.ok(Map.of("success", true, "id", saved.getId()));          // 200
-}
-```
-
----
-
-## 🚀 Cài Đặt Và Chạy
-
-### Yêu cầu hệ thống
-- Java JDK 17+
-- Maven 3.9+
-- MySQL 8.0+
-- Node.js 18+ (để chạy init-db.js)
-- VSCode + Extension Pack for Java
-
-### Bước 1 — Clone dự án
-```bash
-git clone https://github.com/<your-username>/hospital-management.git
-cd hospital-management
-```
-
-### Bước 2 — Khởi tạo database
-```bash
-# Cài đặt dependencies Node.js
-npm install mysql2
-
-# Chạy script tạo database và dữ liệu mẫu
-node init-db.js
-```
-
-### Bước 3 — Cấu hình kết nối database
-Mở file `src/main/resources/application.properties` và chỉnh thông tin:
-```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/hospital_db
-spring.datasource.username=root
-spring.datasource.password=your_password
-spring.jpa.hibernate.ddl-auto=update
-server.port=8080
-```
-
-### Bước 4 — Chạy Spring Boot Backend
-```bash
-# Dùng Maven Wrapper (không cần cài Maven)
-.\mvnw spring-boot:run
-
-# Hoặc nếu đã cài Maven
-mvn spring-boot:run
-```
-
-### Bước 5 — Mở giao diện
-Mở file `html/index.html` trên trình duyệt hoặc dùng Live Server trong VSCode.
-
-> 🟢 Backend đang chạy tại: `http://localhost:8080`  
-> 🟢 Tài khoản mặc định: `admin@gmail.com` / `123`
-
----
-
 ## 📡 API Endpoints
 
 ### Authentication
@@ -415,24 +317,6 @@ employees
 
 ---
 
-## 👥 Nhóm Phát Triển
-
-| Tên | Mã SV | Vai trò | Nhiệm vụ |
-|---|---|---|---|
-| **Nguyễn Quốc Tấn** | B22DCVT457 | Leader | Backend, tầng dữ liệu, Controller, cấu hình hệ thống |
-| **Phạm Đình Bách** | B22DCVT569 | Thành viên | Thiết kế CSDL, SQL, toàn bộ JavaScript |
-| **Phạm Hữu** | B22DCVT585 | Thành viên | Giao diện quản lý thuốc và khám bệnh |
-| **Kim Tiến Thành** | B22DCVT177 | Thành viên | Giao diện dịch vụ y tế và phòng/giường |
-| **Đinh Đức Thắng** | B22DCVT481 | Thành viên | Giao diện trang chủ và layout chung |
-
----
-
-## 📄 Giấy Phép
-
-Dự án được phát triển phục vụ mục đích học tập môn **Lập Trình Hướng Đối Tượng** — Học viện Công nghệ Bưu chính Viễn thông (PTIT).
-
----
-
 <div align="center">
-Made with ❤️ by Nhóm Hospital Management — PTIT 2026
+Made with ❤️ 
 </div>
