@@ -51,10 +51,10 @@ Dự án áp dụng đầy đủ 4 tính chất của **Lập Trình Hướng Đ
 │                   SPRING BOOT BACKEND                   │
 │                     (Port 8080)                         │
 │                                                         │
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────────┐ │
-│  │  Controller │→ │   Service   │→ │   Repository    │ │
-│  │  (API Layer)│  │(Logic Layer)│  │  (Data Layer)   │ │
-│  └─────────────┘  └─────────────┘  └────────┬────────┘ │
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────────┐  │
+│  │  Controller │→ │   Service   │→ │   Repository    │  │
+│  │  (API Layer)│  │(Logic Layer)│  │  (Data Layer)   │  │
+│  └─────────────┘  └─────────────┘  └────────┬────────┘  │
 │                                             │           │
 │  ┌──────────────────────────────────────────┘           │
 │  │              Spring Data JPA                         │
